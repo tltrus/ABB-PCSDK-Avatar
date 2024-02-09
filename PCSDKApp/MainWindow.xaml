@@ -1,0 +1,41 @@
+﻿<Window x:Class="Painting.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Painting"
+        mc:Ignorable="d"
+        Title="Avatar" Height="350" Width="600">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" VerticalAlignment="Center">
+                <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <ComboBox x:Name="cbox_Controllers" Width="200" Margin="5" SelectionChanged="cbox_Controllers_SelectionChanged" ></ComboBox>
+                    <Label Content="System name:" VerticalAlignment="Center"/>
+                    <Label x:Name="lbSystem" Content="" VerticalAlignment="Center"/>
+                </WrapPanel>
+
+            </Grid>
+            <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:DrawingVisualClass x:Name="g" Width="400" Height="200" Background="#FFEAEAEA" MouseLeftButtonUp="g_MouseLeftButtonUp" MouseLeftButtonDown="g_MouseLeftButtonDown" MouseMove="g_MouseMove"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" HorizontalAlignment="Center">
+            <WrapPanel>
+                <Button x:Name="btnStart" Content="Start Rapid" Margin="5" Style="{StaticResource ButtonStyle}" Click="btnStart_Click" IsEnabled="False"/>
+                <Button x:Name="btnStop" Content="Stop Rapid" Margin="5" Style="{StaticResource ButtonStyle}" Click="btnStop_Click" IsEnabled="False" />
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</Window>
